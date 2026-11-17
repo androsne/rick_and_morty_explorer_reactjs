@@ -22,7 +22,7 @@ const Header = ({ activeSection, onNavigate }: HeaderProps) => {
           aria-label="Rick and Morty Explorer home"
           onClick={() => onNavigate("characters")}
         >
-          <img src="/img/rick_and_morty.svg" alt="" />
+          <img src="img/rick_and_morty.svg" alt="" />
         </a>
 
         <nav className="navbar" aria-label="Main navigation">
