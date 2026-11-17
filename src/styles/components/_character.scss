@@ -1,0 +1,133 @@
+@use "../variables" as v;
+
+/* CHARACTER GRID - MOBILE FIRST */
+.character_grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+/* CHARACTER CARD */
+.character_card {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  background-color: v.$surface;
+  border: 1px solid v.$border;
+  border-radius: 12px;
+  position: relative;
+
+  transition:
+    transform 0.2s ease,
+    border-color 0.2s ease;
+
+  &:hover {
+    transform: translateY(-4px);
+    border-color: v.$accent;
+  }
+}
+
+.character_image {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+}
+
+.character_info {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  gap: 12px;
+  padding: 16px;
+}
+
+.character_name {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 600;
+  overflow-wrap: anywhere;
+}
+
+.character_status {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: v.$text-muted;
+  font-size: 14px;
+}
+
+.status_dot {
+  width: 8px;
+  height: 8px;
+  flex-shrink: 0;
+  border-radius: 50%;
+
+  &.alive {
+    background-color: v.$accent;
+  }
+
+  &.dead {
+    background-color: v.$status-dead;
+  }
+
+  &.unknown {
+    background-color: v.$status-unknown;
+  }
+}
+
+.character_bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+  margin-top: auto;
+}
+
+.character_gender {
+  color: v.$text-muted;
+  font-size: 14px;
+}
+
+/* TABLET */
+@media (min-width: 768px) {
+  .character_grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 24px;
+  }
+}
+
+/* DESKTOP */
+@media (min-width: 1200px) {
+  .character_grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
+/* REDUCED MOTION */
+@media (prefers-reduced-motion: reduce) {
+  .character_card {
+    transition: none;
+
+    &:hover {
+      transform: none;
+    }
+  }
+}
+
+/* FULL-CARD DETAILS BUTTON */
+.card_open_button {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  width: 100%;
+  padding: 0;
+  background: transparent;
+  border: 0;
+  border-radius: 12px;
+  cursor: pointer;
+
+  &:focus-visible {
+    outline: 2px solid v.$accent;
+    outline-offset: -3px;
+  }
+}

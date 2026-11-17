@@ -1,0 +1,14 @@
+@use "variables";
+@use "global";
+@use "layout";
+
+@use "components/header";
+@use "components/footer";
+@use "components/content-header";
+@use "components/character";
+@use "components/filters";
+@use "components/pagination";
+@use "components/favourite";
+@use "components/modal";
+@use "components/episode";
+@use "components/location";

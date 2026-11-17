@@ -1,0 +1,117 @@
+@use "../variables" as v;
+
+/* EPISODES GRID - MOBILE FIRST */
+.episode_grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+  margin-bottom: 32px;
+}
+
+/* EPISODE CARD */
+.episode_card {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  min-width: 0;
+  padding: 24px;
+  background-color: v.$surface;
+  border: 1px solid v.$border;
+  border-radius: 12px;
+  position: relative;
+  cursor: pointer;
+
+  transition:
+    border-color 0.2s ease,
+    transform 0.2s ease;
+
+  &:hover {
+    border-color: v.$accent;
+    transform: translateY(-3px);
+  }
+}
+
+/* TOP ROW */
+.episode_top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+}
+
+.episode_code {
+  padding: 6px 10px;
+  color: v.$accent;
+  background-color: v.$background;
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.episode_id {
+  color: v.$text-muted;
+  font-size: 13px;
+}
+
+/* EPISODE NAME */
+.episode_name {
+  margin: 0;
+  color: v.$text;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 28px;
+}
+
+/* EPISODE DETAILS */
+.episode_details {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: auto;
+  padding-top: 16px;
+  border-top: 1px solid v.$border;
+
+  p {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    margin: 0;
+    font-size: 14px;
+  }
+
+  span {
+    color: v.$text-muted;
+  }
+
+  strong {
+    color: v.$text;
+    font-weight: 600;
+    text-align: right;
+  }
+}
+
+/* TABLET */
+@media (min-width: 768px) {
+  .episode_grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* DESKTOP */
+@media (min-width: 1200px) {
+  .episode_grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 24px;
+  }
+}
+
+/* REDUCED MOTION */
+@media (prefers-reduced-motion: reduce) {
+  .episode_card {
+    transition: none;
+
+    &:hover {
+      transform: none;
+    }
+  }
+}
